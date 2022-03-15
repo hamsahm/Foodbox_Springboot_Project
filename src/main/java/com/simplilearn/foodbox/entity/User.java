@@ -8,33 +8,33 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
-	
+
 	@Id
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long userId;
-	
-	@Column(name="user_name")
+
+	@Column(name = "user_name")
 	private String userName;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	private String password;
-	
-	@Column(name="email_id")
+
+	@Column(name = "email_id")
 	private String emailId;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
-	@Column(name="address")
+
+	@Column(name = "address")
 	private String address;
-	
-	@Column(name="phone_no")
+
+	@Column(name = "phone_no")
 	private String phoneNo;
 
 	public long getUserId() {
@@ -101,5 +101,4 @@ public class User {
 		this.phoneNo = phoneNo;
 	}
 
-	
 }

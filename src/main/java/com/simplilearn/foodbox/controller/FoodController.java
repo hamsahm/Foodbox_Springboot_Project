@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,24 +34,26 @@ public class FoodController {
 		return new ResponseEntity<Optional<Food>>(foodService.getFoodDetails(id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/foods")
-	public ResponseEntity<List<Food>> getFoodsByCategory(@RequestParam(required=false) String categoryName ) {
-		
-		if(categoryName != null) {
-			return new ResponseEntity<List<Food>>(foodService.getFoodsByCategory(categoryName), HttpStatus.OK);
-		} else {
-			
-		}
-		List<Food> foods =  foodService.getAllFoods();
-		
-		System.out.println("foods "+foods);
-		
-		return new ResponseEntity<List<Food>>(foods, HttpStatus.OK);
-	}
+	/*
+	 * @CrossOrigin(origins = "http://localhost:4200")
+	 * 
+	 * @GetMapping("/foods") public ResponseEntity<List<Food>>
+	 * getFoodsByCategory(@RequestParam(required=false) String categoryName ) {
+	 * 
+	 * if(categoryName != null) { return new
+	 * ResponseEntity<List<Food>>(foodService.getFoodsByCategory(categoryName),
+	 * HttpStatus.OK); } else {
+	 * 
+	 * } List<Food> foods = foodService.getAllFoods();
+	 * 
+	 * System.out.println("foods "+foods);
+	 * 
+	 * return new ResponseEntity<List<Food>>(foods, HttpStatus.OK); }
+	 */
 	
 
     @PostMapping("/foods")
-    public ResponseEntity<Food> createMovie(@RequestBody Food food) {
+    public ResponseEntity<Food> createFood(@RequestBody Food food) {
         return new ResponseEntity<Food>(foodService.createFood(food), HttpStatus.ACCEPTED);
     }
 

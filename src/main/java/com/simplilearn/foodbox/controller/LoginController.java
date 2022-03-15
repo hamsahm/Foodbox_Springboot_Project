@@ -13,25 +13,12 @@ public class LoginController {
 
 	@Autowired
 	LoginService loginService;
-	
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/login")
-	public boolean validateUser(@RequestParam(required=true) String name,@RequestParam(required=true) String password) {
-		
-		
-		//boolean isValidUser = loginService.validateUser(name, password);
-		//return new ResponseEntity(loginService.validateUser(name, password), HttpStatus.OK);
-		/*if(categoryName != null) {
-			return new ResponseEntity<List<Food>>(foodService.getFoodsByCategory(categoryName), HttpStatus.OK);
-		} else {
-			
-		}
-		List<Food> foods =  foodService.getAllFoods();
-		
-		System.out.println("foods "+foods);
-		
-		return new ResponseEntity<List<Food>>(foods, HttpStatus.OK);*/
-		
+	public boolean validateUser(@RequestParam(required = true) String name,
+			@RequestParam(required = true) String password) {
+
 		return loginService.validateUser(name, password);
 	}
 }

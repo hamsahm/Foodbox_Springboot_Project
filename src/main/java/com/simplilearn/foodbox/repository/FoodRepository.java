@@ -9,6 +9,6 @@ import com.simplilearn.foodbox.entity.Food;
 
 public interface FoodRepository extends JpaRepository<Food, Long> {
 
-	List<Food> findByCategory(Category category);
+//	List<Food> findByCategory(Category category);
 
 }

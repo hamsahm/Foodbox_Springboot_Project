@@ -10,11 +10,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "category")
 public class Category {
-	@Override
-	public String toString() {
-		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", categoryDescription="
-				+ categoryDescription + "]";
-	}
 
 	@Id
 	@Column(name = "category_id")
@@ -61,4 +56,11 @@ public class Category {
 	public void setCategoryDescription(String categoryDescription) {
 		this.categoryDescription = categoryDescription;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", categoryDescription="
+				+ categoryDescription + "]";
+	}
+
 }

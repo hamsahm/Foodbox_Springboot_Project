@@ -10,7 +10,7 @@ import com.simplilearn.foodbox.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
-	
+
 	@Autowired
 	public CategoryRepository categoryRepository;
 
@@ -19,7 +19,7 @@ public class CategoryService {
 	}
 
 	public Category getCategoryByName(String categoryName) {
-		
+
 		return categoryRepository.findByCategoryName(categoryName);
 	}
 

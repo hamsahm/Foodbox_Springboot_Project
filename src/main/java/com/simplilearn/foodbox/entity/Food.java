@@ -1,21 +1,13 @@
 package com.simplilearn.foodbox.entity;
 
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.NaturalId;
 
 @Entity
 @Table(name = "food")
@@ -25,41 +17,25 @@ public class Food {
 	@Column(name = "food_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long foodId;
-	
-	@NaturalId
+
 	@Column(name = "food_name")
 	private String foodName;
 
-	
 	@Column(name = "price")
 	private double price;
 
 	@Column(name = "image_url")
 	private String imageUrl;
 
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name = "category", referencedColumnName = "category_id") private
-	 * Category category;
-	 */
-	
-	@ManyToMany
-	private List<Order> orders;
+	@ManyToOne
+	@JoinColumn(name = "category", referencedColumnName = "category_id")
+	private Category category;
 
 	@Column(name = "description")
 	private String description;
 
 	@Column(name = "offers")
 	private String offers;
-	
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -96,11 +72,14 @@ public class Food {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	/*
-	 * public Category getCategory() { return category; }
-	 * 
-	 * public void setCategory(Category category) { this.category = category; }
-	 */
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 	public String getDescription() {
 		return description;
